@@ -1,7 +1,8 @@
 node_modules
 
 .idea
-webApp/dist/
+dist
 
 npm-debug.log
+yarn-error.log
 
