@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.dev.config.js --devtool eval --progress --colors --hot --inline --content-base src",
-    "pub": " webpack --config webpack.pub.config.js  -p"
+    "pro": " webpack --config webpack.pro.config.js  -p"
   },
-  "author": "王小猛",
+  "author": "wangxiaomeng",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.21.0",

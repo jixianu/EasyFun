@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class MusicDetailContainer extends Component {
   constructor(props){
