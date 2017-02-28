@@ -39,6 +39,6 @@ module.exports = {
         NODE_ENV: JSON.stringify('development') //定义编译环境
       }
     }),*/
-    new OpenBrowserPlugin({url: 'http://localhost:8080'}),
+    new OpenBrowserPlugin({url: 'http://localhost:8080/#/'}),
   ]
 };

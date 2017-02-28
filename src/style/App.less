@@ -1,17 +1,20 @@
-/*覆盖样式*/
-.ant-layout,.ant-layout-header,.ant-layout-footer {
-  background: #fcfcfc;
+@import url('./Common');
+
+.logo {
+  display: block;
+  height: 64px;
+  background: url('../img/logo.png') left center no-repeat;
+  background-size: 80% 80%;
 }
-
-
 .header_tab {
   float: right;
   height: 64px;
   li {
     a {
       display: block;
-      font-size: 22px;
+      font-size: 18px;
       text-align: center;
+      &:hover { color: @current }
     }
     width: 80px;
     height: 62px;
@@ -20,10 +23,10 @@
 }
 
 .header_curPage {
-  color: #f2bd00;
+  color: @current;
   width: 80px;
   height: 64px;
   display: block;
   text-align: center;
-  border-bottom: 2px solid #108ee9;
+  border-bottom: 2px solid @theme;
 }

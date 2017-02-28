@@ -100,8 +100,8 @@ import HomeContainer from '../containers/HomeContainer'
 const RootRoter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ AppContainer }>
-      <IndexRoute component={ HomeContainer }/>
-      <Route path="index" component={ HomeContainer }/>
+      <IndexRoute  component={ HomeContainer }/>
+      <Route path="index"  component={ HomeContainer }/>
       <Route path="movie" component={ MovieContainer }/>
       <Route path="movie/:id" component={ MovieDetailContainer }/>
       <Route path="book" component={ BookContainer }/>
