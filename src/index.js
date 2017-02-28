@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import RootRoute from './routers/Route-Config'
+import RootRouter from './routers/Route-Config'
 /*import { Provider } from 'react-redux'
  import {createStore, applyMiddleware} from 'redux'
  import thunkMiddleware from 'redux-thunk'*/
@@ -22,7 +22,7 @@ import RootRoute from './routers/Route-Config'
 
 var rootInstance = ReactDOM.render(
   <div>
-    {RootRoute}
+    {RootRouter}
   </div>,
   document.getElementById('app')
 )
