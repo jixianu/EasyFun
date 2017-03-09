@@ -13,7 +13,7 @@ export default class AppContainer extends Component {
     return (
       <div>
           <Layout>
-            <Header className='container'>
+            {/*<Header className='container'>
                <Row>
                   <Col span={6}><a href='/' className='logo'/></Col>
                   <Col span={16}  offset={2}>
@@ -26,7 +26,7 @@ export default class AppContainer extends Component {
                     </ul>
                   </Col>
                </Row>
-            </Header>
+            </Header>*/}
           </Layout>
           <div className='container'>
               {this.props.children}
