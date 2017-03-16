@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
-import fetchJsonp from 'fetch-jsonp'
 import {Layout} from 'antd'
+import fetch from '../common/fetch'
+
 import 'antd/dist/antd.less'
-const {Content, Sider} = Layout
 import SiderMenu from '../components/SiderMenu'
 import TodoContainer from '../components/TodoContainer'
+
+const {Content, Sider} = Layout
 
 export default class HomeContainer extends Component {
   constructor(props) {
@@ -14,14 +16,7 @@ export default class HomeContainer extends Component {
   }
 
   handle() {
-    fetchJsonp('https://api.douban.com/v2/book/1220562')
-      .then(function (response) {
-        return response.json()
-      }).then(function (json) {
-      console.log('parsed json', json.id)
-    }).catch(function (ex) {
-      console.log('parsing failed', ex)
-    })
+    fetch();
   }
 
   render() {
@@ -31,12 +26,11 @@ export default class HomeContainer extends Component {
           <SiderMenu />
         </Sider>
         <Content>
-          {/*<button onClick={()=> {
-           this.handle()
-           }}>aaa
-           </button>*/}
+          <button onClick={
+            this.handle
+          }>aaa
+          </button>
           <TodoContainer />
-
         </Content>
       </Layout>
     )

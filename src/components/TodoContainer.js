@@ -7,7 +7,7 @@ import {
   VisibilityFilters
 } from '../actions';
 
-import Footer from './Footer'
+import Content from './Content'
 import AddTodo from './AddTodo'
 import TodoList from './TodoList'
 
@@ -25,7 +25,7 @@ class TodoContainer extends Component {
           todos={visibleTodos}
           onTodoClick={index => dispatch(completeTodo(index))}
         />
-        <Footer
+        <Content
           filter={visibilityFilter}
           onFilterChange={nextFilter => dispatch(setVisibilityFilter(nextFilter))}
         />

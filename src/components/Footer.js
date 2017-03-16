@@ -1,34 +1,18 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Layout} from 'antd'
 
-export default class Footer extends Component {
-  renderFilter(filter, name) {
-    if(filter == this.props.filter) {
-      return name;
-    }
-    return (
-      <a
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          this.props.onFilterChange(filter);
-        }}>
-        {name}
-      </a>
-    );
-  }
+import 'antd/dist/antd.less'
+import '../style/Common'
+import '../style/App'
 
-  render() {
-    return (
-      <p>
-        SHOW
-        {' '}
-        {this.renderFilter('SHOW_ALL', 'All')}
-        {', '}
-        {this.renderFilter('SHOW_COMPLETED', 'Completed')}
-        {', '}
-        {this.renderFilter('SHOW_ACTIVE', 'Active')}
-        .
-      </p>
-    );
-  }
+const {Footer} = Layout
+
+function Foot() {
+  return (
+    <Footer className='container'>
+      This is Footer
+    </Footer>
+  )
 }
+
+export default Foot

@@ -8,7 +8,6 @@
 - ES6
 - Less
 - Antd
-- AnimateCSS
 - Mock.js
 - Webpack
     
@@ -28,6 +27,6 @@
 ###记录
 
 2.24
-配置webpack与包管理
+配置webpack与包管理  
 2.25
 配置webpack开发热更新
