@@ -1,14 +1,9 @@
 import fetchJsonp from 'fetch-jsonp'
 
 function fetch(opt) {
-  const result = fetchJsonp('https://api.douban.com/v2/movie/in_theaters', /*{
-    method: 'POST',
-    body: {
-      'start': opt.start || 0,
-      'count': opt.count || 5
-    },
-    timeout: 10000
-  }*/);
+  const result = fetchJsonp(`https://api.douban.com/v2/movie/in_theaters?start=${opt.start}&count=${opt.count}`, {
+    timeout: 3000,
+  });
 
   result.then(function (response) {
     return response.json()
