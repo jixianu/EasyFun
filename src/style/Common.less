@@ -1,20 +1,42 @@
+@import "Color";
+
 body {
-	background-color:  @bgColor;
+  background-color: @bgColor;
 }
-.container {
-	width: 1170px;
-	margin: 0 auto;
-	border-bottom: 1px solid @bdColor; 
-}
+
 /*覆盖样式*/
- .ant-layout,.ant-layout-header,.ant-layout-footer {
-  background: @bgColor;
-} 
-// 当前
-@current: #f2bd00;
-// 主题色
-@theme: #108ee9;
-// 背景色
-@bgColor: #fcfcfc;
-// 边框色
-@bdColor: #eee;
+.ant-layout-header {
+  background-color: @bgColor;
+  border-bottom: 1px solid @bdColor;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.center {
+  padding-top: 10px;
+
+  .ant-layout, .ant-layout-sider {
+    background-color: @bgColor;
+  }
+
+  .ant-menu {
+    text-align: center;
+    margin-right: 10px;
+    background-color: #fff;
+  }
+  .ant-menu-inline, .ant-menu-vertical {
+    border: 1px solid @bdColor;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  .ant-layout-content {
+    padding-left: 10px;
+    border: 1px solid @bdColor;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+}

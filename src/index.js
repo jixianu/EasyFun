@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import RootRouter from './routers/Route-Config'
+import RootRouter from './config/Route-Config'
 import { Provider } from 'react-redux'
-import StoreConfig from './store/Store-Config'
+import StoreConfig from './config/Store-Config'
 
 // 测试redux
 import TodoContainer from './components/TodoContainer'

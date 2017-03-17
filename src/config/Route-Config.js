@@ -112,8 +112,8 @@ const RootRoter = (
              onLeave={ ()=>console.log('离开了music页面')  }
              onEnter={ ()=>console.log('进入了music页面') }/>
       <Route path="music/:id" component={ MusicDetailContainer }/>
-      <Redirect from='*' to='/'/>
       <Route path="404" component={ NotFoundPage }/>
+      <Redirect from='*' to='/'/>
     </Route>
   </Router>
 )

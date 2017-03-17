@@ -7,7 +7,7 @@ import '../style/App'
 
 const {Footer} = Layout
 
-function Foot() {
+const Foot = () => {
   return (
     <Footer className='container'>
       This is Footer

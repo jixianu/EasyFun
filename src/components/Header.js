@@ -8,7 +8,7 @@ import '../style/App'
 
 const {Header} = Layout
 
-function Head() {
+const Head = () => {
   return (
     <Header className='container'>
       <Row>

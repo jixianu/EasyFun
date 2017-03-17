@@ -2,7 +2,7 @@ import fetchJsonp from 'fetch-jsonp'
 
 function fetch(opt) {
   const result = fetchJsonp(`https://api.douban.com/v2/movie/in_theaters?start=${opt.start}&count=${opt.count}`, {
-    timeout: 3000,
+    timeout: 3500,
   });
 
   result.then(function (response) {
