@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Layout, Pagination} from 'antd'
-import fetch from '../common/fetch'
+import fetch_movie from '../common/fetch'
 
 import 'antd/dist/antd.less'
 import SiderMenu from '../components/SiderMenu'
@@ -19,7 +19,7 @@ export default class HomeContainer extends Component {
   }
 
   handle() {
-    fetch();
+    fetch_movie();
   }
 
   onChange(page) {
@@ -27,7 +27,7 @@ export default class HomeContainer extends Component {
     this.setState({
       'curPage': page
     });
-    fetch({
+    fetch_movie({
       'start': page,
       'count': 5
     });

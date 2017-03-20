@@ -12,7 +12,7 @@ export default class MusicDetailContainer extends Component {
   render() {
     return (
       <div>
-         MusicDE
+         MusicDE页面暂时不开发
       </div>
     )
   }

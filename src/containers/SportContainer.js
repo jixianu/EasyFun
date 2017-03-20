@@ -12,7 +12,7 @@ export default class SportContainer extends Component {
   render() {
     return (
       <div>
-         Sport
+         Sport页面暂时不开发
       </div>
     )
   }

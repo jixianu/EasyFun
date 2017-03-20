@@ -30,7 +30,8 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "yarn": "^0.21.3"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
@@ -39,6 +40,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.8",
     "redux": "^3.6.0"
   }
 }

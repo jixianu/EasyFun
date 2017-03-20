@@ -1,6 +1,6 @@
 import fetchJsonp from 'fetch-jsonp'
 
-function fetch(opt) {
+export default function fetch_movie(opt) {
   const result = fetchJsonp(`https://api.douban.com/v2/movie/in_theaters?start=${opt.start}&count=${opt.count}`, {
     timeout: 3500,
   });
@@ -14,4 +14,4 @@ function fetch(opt) {
   })
 }
 
-export default fetch
+
