@@ -1,15 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import RootRouter from './config/Route-Config'
-import StoreConfig from './config/Store-Config'
 
-const store = StoreConfig();
+import RootRouter from './config/Route-Config'
 
 var rootInstance = ReactDOM.render(
-  <Provider store={store}>
+    <div>
       {RootRouter}
-  </Provider>,
+    </div>,
   document.getElementById('app')
 )
 

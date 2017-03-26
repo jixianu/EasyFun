@@ -1,42 +1,39 @@
 @import "Color";
-
-body {
-  background-color: @bgColor;
-}
-
+@import "base";
 /*覆盖样式*/
 .ant-layout-header {
   background-color: @bgColor;
-  border-bottom: 1px solid @bdColor;
-}
 
-.container {
-  width: 1170px;
-  margin: 0 auto;
+  .ant-row {
+    .bdt;
+  }
 }
 
 .center {
-  padding-top: 10px;
+  padding: 10px 50px 0px 50px;
 
   .ant-layout, .ant-layout-sider {
     background-color: @bgColor;
   }
 
   .ant-menu {
-    text-align: center;
-    margin-right: 10px;
+    .tc;
+    .mr10;
     background-color: #fff;
   }
+
   .ant-menu-inline, .ant-menu-vertical {
-    border: 1px solid @bdColor;
+    .bd;
     border-radius: 10px;
     background-color: #fff;
   }
 
-  .ant-layout-content {
-    padding-left: 10px;
-    border: 1px solid @bdColor;
+  //右侧中心显示区域
+  .content {
+    .pl10;
+    .bd;
     border-radius: 10px;
     background-color: #fff;
+    overflow-x: hidden;
   }
 }

@@ -1,33 +1,33 @@
 @import 'Color';
-
+@import "base";
 .logo {
-  display: block;
-  height: 64px;
-  background: url('../img/logo.png') left center no-repeat;
+  .db;
+  .h64;
+  background: url('../image/logo.png') left center no-repeat;
   background-position: 0 0;
 }
 
 .header_tab {
-  float: right;
-  height: 64px;
+  .fr;
+  .h64;
   li {
     a {
-      display: block;
-      font-size: 18px;
-      text-align: center;
+      .db;
+      .fz18;
+      .tc;
       &:hover { color: @current }
     }
-    width: 80px;
+    .w80;
+    .fl;
     height: 62px;
-    float: left;
   }
 }
 
 .header_curPage {
   color: @current;
-  width: 80px;
-  height: 64px;
-  display: block;
-  text-align: center;
+  .w80;
+  .h64;
+  .db;
+  .tc;
   border-bottom: 2px solid @theme;
 }

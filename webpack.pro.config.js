@@ -22,7 +22,7 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
       },
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=img/[name].[ext]'},
+      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=image/[name].[ext]'},
       {test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, loader: 'url'}
     ]
   },

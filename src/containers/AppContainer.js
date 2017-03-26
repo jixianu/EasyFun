@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
-import Head from '../components/Header'
-import Foot from '../components/Footer'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+
+import '../style/base'
 
 export default class AppContainer extends Component {
   render() {
     return (
       <div>
-        <Head />
-        <div className='container center'>
+        <Header />
+        <div className='wrap center'>
           {this.props.children}
         </div>
-        <Foot />
+        <Footer />
       </div>
     )
   }

@@ -3,14 +3,14 @@ import {Link, IndexLink} from 'react-router'
 import {Layout, Row, Col} from 'antd'
 
 import 'antd/dist/antd.less'
-import '../style/Common'
+import '../style/Cover'
 import '../style/App'
 
 const {Header} = Layout
 
 const Head = () => {
   return (
-    <Header className='container'>
+    <Header className='wrap'>
       <Row>
         <Col span={6}>
           <a href='/' className='logo'/>
