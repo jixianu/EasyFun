@@ -18,6 +18,7 @@ export default class MovieColumn extends Component {
     }
 
     this.pageChange = this.pageChange.bind(this);
+    this.resolve = this.resolve.bind(this);
   }
 
   componentWillMount() {
@@ -58,7 +59,7 @@ export default class MovieColumn extends Component {
         />
         <MovieList
           type={this.props.type}
-          MovieData={this.state.MoviesData}
+          MoviesData={this.state.MoviesData}
           isLoading={this.state.isLoading}
         />
         <Pages

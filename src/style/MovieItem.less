@@ -1,18 +1,19 @@
-@import "Color";
 @import "base";
+
 [class^="ant-col-"] {
     padding: 0px 8px;
-    div.movie_item {
-        div.movie_img {
+    .movie_item {
+        .movie_img {
             height: 280px;
             img {
                 width: 100%;
                 height: 100%;
             }
         }
-        div.movie_info {
+        .movie_info {
             height: 20px;
-            div.movie_title {
+            .mt8;
+            .movie_title {
                 .fz16;
                 .lh20;
                 .fb;
@@ -21,7 +22,7 @@
                 .h20;
                 width: 85%;
             }
-            div.movie_score {
+            .movie_score {
                 .h20;
                 .lh20;
                 .fz18;
@@ -29,6 +30,11 @@
                 .tr;
                 color: @theme;
                 width: 15%;
+            }
+            .movie_genre {
+                .movie_score;
+                .fz14;
+                color: @genre;
             }
         }
     }

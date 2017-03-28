@@ -4,7 +4,7 @@ import * as config from '../config'
 
 import '../style/MovieItem'
 
-function MovieItem({ isLoading, imgUrl, title, rating }) {
+function MovieItem({ isLoading, imgUrl, title, rating, genre }) {
   // 返回JSX结构
   return (
     <Col span={24 / config.DEFAULT_COUNT}>
@@ -18,7 +18,11 @@ function MovieItem({ isLoading, imgUrl, title, rating }) {
             </div>
             <div className='movie_info'>
               <div className='movie_title'>{title}</div>
-              <div className='movie_score'>{rating}</div>
+              {rating == '0' ?
+                <div className='movie_genre'>{genre}</div>
+                :
+                <div className='movie_score'>{rating}</div>
+              }
             </div>
           </div>
       }

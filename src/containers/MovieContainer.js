@@ -26,9 +26,9 @@ export default class MovieContainer extends Component {
               type='in_theaters'
               total={30}
             />
-            {/*<MovieColumn
+            <MovieColumn
               id='comingSoon'
-              title='即将热映热映'
+              title='即将上映'
               type='coming_soon'
               total={30}
             />
@@ -42,8 +42,8 @@ export default class MovieContainer extends Component {
               id='usBox'
               title='北美票房榜'
               type='us_box'
-              total={10}
-            />*/}
+              total={11}
+            />
           </Content>
         </Layout>
       </div>
