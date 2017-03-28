@@ -44,6 +44,7 @@ export default class HomeContainer extends Component {
           <SiderMenu />
         </Sider>
         <Content className='content'>
+          1234
         </Content>
       </Layout>
     )

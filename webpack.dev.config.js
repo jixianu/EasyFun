@@ -1,15 +1,19 @@
 var webpack = require('webpack');
 var path = require('path');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin'); // 编译后自动打开浏览器
+
+var ROOT_PATH = path.resolve(__dirname); // 项目跟路径
+var APP_PATH = path.resolve(ROOT_PATH, 'src'); // 项目开发目录src
+var APP_FILE = path.resolve(APP_PATH, 'index.js'); // 项目入口的index.js
 
 module.exports = {
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
-    path.resolve(__dirname, 'src/index.js')
+    APP_FILE
   ],
   output: {
-    path: path.resolve(__dirname, 'src'),
+    path: APP_PATH,
     filename: 'bundle.js'
   },
   // 可以在sources里调试
@@ -34,11 +38,6 @@ module.exports = {
   },
   // 插件
   plugins: [
-    /*new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('development') //定义编译环境
-      }
-    }),*/
     new OpenBrowserPlugin({url: 'http://localhost:8080/#/'}),
   ]
 };

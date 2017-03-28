@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.dev.config.js --devtool eval --progress --colors --hot --inline --content-base src",
-    "pro": " rimraf dist && webpack --config webpack.pro.config.js  -p"
+    "pro": " rimraf dist/*.* && webpack --config webpack.pro.config.js  -p"
   },
   "author": "wangxiaomeng",
   "license": "MIT",

@@ -4,12 +4,17 @@ var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+var ROOT_PATH = path.resolve(__dirname); // 项目跟路径
+var APP_PATH = path.resolve(ROOT_PATH, 'src'); // 项目开发目录src
+var APP_FILE = path.resolve(APP_PATH, 'index.js'); // 项目入口的index.js
+var DIST_PATH = path.resolve(ROOT_PATH, 'dist'); // 项目打包输出路径
+
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/index.js')
+    app: APP_FILE
   },
   output: {
-    path: path.resolve(__dirname, 'dist/'),
+    path: DIST_PATH,
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash:5].min.js'
   },
@@ -36,29 +41,19 @@ module.exports = {
     'react-redux': 'react-redux'
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production') //定义生产环境
-      }
-    }),
     new uglifyJsPlugin({
       compress: {
         warnings: false
       }
     }),
     new ExtractTextPlugin("[name].css"),
-    /*new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),*/
     new HtmlWebpackPlugin({
       template: './src/template/template.html',
       htmlWebpackPlugin: {
-        "files": {
-          "css": ["app.css"],
+        files: {
+          css: ["app.css"],
           // "js": ["bundle.js", "vendors.js"]
-          "js": ["bundle.js"]
+          js: ["bundle.js"]
         }
       },
       minify: {
