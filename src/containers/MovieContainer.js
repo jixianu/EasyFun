@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Layout, Spin, Alert} from 'antd'
-import SiderMenu from '../components/SiderMenu'
+import MovieMenu from '../components/MovieMenu'
 import MovieColumn from '../components/MovieColumn'
 
 import 'antd/dist/antd.less'
@@ -17,7 +17,7 @@ export default class MovieContainer extends Component {
       <div>
         <Layout>
           <Sider>
-            <SiderMenu />
+            <MovieMenu />
           </Sider>
           <Content>
             <MovieColumn

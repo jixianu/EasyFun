@@ -11,7 +11,13 @@ var DIST_PATH = path.resolve(ROOT_PATH, 'dist'); // 项目打包输出路径
 
 module.exports = {
   entry: {
-    app: APP_FILE
+    app: APP_FILE,
+    venders: [
+      'react',
+      'react-dom',
+      'react-router',
+      'antd'
+    ]
   },
   output: {
     path: DIST_PATH,
@@ -20,48 +26,59 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
-      {test: /\.less$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')},
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'less'])
+      },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
       },
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192&name=image/[name].[ext]'},
-      {test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, loader: 'url'}
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192&name=image/[name].[ext]'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'url'
+      }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.json', '.less']
   },
-  externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'redux': 'redux',
-    'react-redux': 'react-redux'
-  },
   plugins: [
+    // new webpack.ProvidePlugin({ $: "jquery" }), // 这是将jquery变成全局变量，不用在自己文件require('jquery')了
+    new webpack.optimize.CommonsChunkPlugin('venders', 'venders.js'), // 这是妮第三方库打包生成的文件
     new uglifyJsPlugin({
+      output: {
+        comments: false, // remove all comments
+      },
       compress: {
         warnings: false
       }
     }),
     new ExtractTextPlugin("[name].css"),
     new HtmlWebpackPlugin({
-      template: './src/template/template.html',
+      template: './src/template/template.html', // html模板路径
       htmlWebpackPlugin: {
         files: {
           css: ["app.css"],
-          // "js": ["bundle.js", "vendors.js"]
-          js: ["bundle.js"]
+          js: ["bundle.js", "venders.js"]
+          // js: ["bundle.js"]
         }
       },
       minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeComments: true, // 移除HTML中的注释
+        collapseWhitespace: true, // 删除空白符与换行符
+        removeAttributeQuotes: true // 移除HTML中的属性引号
       },
-      filename:'index.html'
+      filename: 'index.html'
     })
   ]
 };

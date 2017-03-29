@@ -7,7 +7,7 @@ function Pages({current, total, onChange, defaultPageSize, id}){
   return (
     <div className="Pages" id= {id}>
       <Pagination
-        current= {current || 1}
+        current= {current}
         total={total}
         defaultPageSize={defaultPageSize || 4}
         onChange={onChange}

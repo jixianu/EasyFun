@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import MovieItem from './MovieItem'
-import {Row, Spin, Col} from 'antd'
-import * as config from '../config'
+import {Row, Spin} from 'antd'
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -14,7 +13,6 @@ export default class MovieList extends Component {
     if (this.props.MoviesData) {
       // 北美榜数据格式不同，进行判断
       if (this.props.type === 'us_box') {
-        // 这里使用的遍历了所有对象
         itemList = this.props.MoviesData.map(item => (
           <MovieItem
             key={item.subject.id}
@@ -23,6 +21,8 @@ export default class MovieList extends Component {
             rating={item.subject.rating.average}
           />
         ));
+        let endlength = this.props.current*4 < itemList.length ? this.props.current*4 : itemList.length;
+        itemList = itemList.slice((this.props.current-1)*4, endlength);
       } else {
         itemList = this.props.MoviesData.map(item => (
           <MovieItem
@@ -39,11 +39,7 @@ export default class MovieList extends Component {
     return (
       // Item间距
       <Row gutter={16}>
-        {this.props.isLoading ?
-          <Spin tip='Loading...' />
-          :
-          itemList
-        }
+        {itemList}
       </Row>
     );
   }

@@ -14,7 +14,7 @@ export default class MovieColumn extends Component {
     this.state = {
       isLoading: true,
       MoviesData: null,
-      curPage: 1
+      current: 1
     }
 
     this.pageChange = this.pageChange.bind(this);
@@ -39,7 +39,7 @@ export default class MovieColumn extends Component {
 
   pageChange(page) {
     this.setState({
-      curPage: page
+      current: page
     })
     fetch_movie({
       start: (page - 1) * config.DEFAULT_COUNT,
@@ -61,10 +61,12 @@ export default class MovieColumn extends Component {
           type={this.props.type}
           MoviesData={this.state.MoviesData}
           isLoading={this.state.isLoading}
+          current={this.state.current}
         />
         <Pages
           total={this.props.total}
           onChange={this.pageChange}
+          current={this.state.current}
         />
       </div>
     )

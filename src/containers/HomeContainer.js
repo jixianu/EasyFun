@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Layout, Pagination, Row, Col, Icon} from 'antd'
-import SiderMenu from '../components/SiderMenu'
+import MovieMenu from '../components/MovieMenu'
 import MovieList from '../components/MovieList'
 import Column from '../components/MovieColumn'
 import * as config from '../config'
@@ -41,7 +41,7 @@ export default class HomeContainer extends Component {
     return (
       <Layout>
         <Sider>
-          <SiderMenu />
+          <MovieMenu />
         </Sider>
         <Content className='content'>
           1234

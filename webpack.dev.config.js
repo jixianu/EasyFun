@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require("extract-text-webpack-plugin"); // 打包css插件
 var OpenBrowserPlugin = require('open-browser-webpack-plugin'); // 编译后自动打开浏览器
 
 var ROOT_PATH = path.resolve(__dirname); // 项目跟路径
@@ -20,15 +21,27 @@ module.exports = {
   devtool: "cheap-module-eval-source-map",
   module: {
     loaders: [
-      {test: /\.css$/, loader: 'style!css'},
-      {test: /\.less$/, loader: 'style!css!less'},
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer'])
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('style', ['css', 'autoprefixer', 'less'])
+      },
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         loaders: ['react-hot', 'babel?presets[]=es2015,presets[]=react,presets[]=stage-0']
       },
-      {test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'},
-      {test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/, loader: 'url'}
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192'
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: 'url'
+      }
     ]
   },
   // 其它解决方案配置
@@ -39,5 +52,6 @@ module.exports = {
   // 插件
   plugins: [
     new OpenBrowserPlugin({url: 'http://localhost:8080/#/'}),
+    new ExtractTextPlugin("app.css")
   ]
 };
