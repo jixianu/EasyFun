@@ -3,7 +3,7 @@ import {Layout, Spin, Alert} from 'antd'
 import MovieMenu from '../components/MovieMenu'
 import MovieColumn from '../components/MovieColumn'
 
-import 'antd/dist/antd.less'
+// import 'antd/dist/antd.less'
 
 const {Content, Sider} = Layout
 

@@ -30,3 +30,9 @@
 配置webpack与包管理  
 2.25
 配置webpack开发热更新
+
+###问题
+
+1.公共的base，其他css引用是不是每次都要引用
+2.怎么限制豆瓣的API访问次数，30次/min
+3.异步读取数据时，返回数据之前切换router会使页面报waring，setState nothing --- 使用redux-thunk解决

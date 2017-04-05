@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import ColumnHeader from '../components/ColumnHeader'
 import MovieList from '../components/MovieList'
 import Pages from '../components/Pages'
-
+import {Spin} from 'antd';
 import fetch_movie from '../common/fetch'
 import * as config from '../config'
 
@@ -50,23 +50,25 @@ export default class MovieColumn extends Component {
   }
 
   render() {
+    const {title, id, type, total} = this.props;
+    const {MoviesData, isLoading, current} = this.state;
     return (
       <div>
         <ColumnHeader
-          title={this.props.title}
+          title={title}
           isMore={false}
-          id={this.props.id}
+          id={id}
         />
         <MovieList
-          type={this.props.type}
-          MoviesData={this.state.MoviesData}
-          isLoading={this.state.isLoading}
-          current={this.state.current}
+          type={type}
+          MoviesData={MoviesData}
+          isLoading={isLoading}
+          current={current}
         />
         <Pages
-          total={this.props.total}
+          total={total}
           onChange={this.pageChange}
-          current={this.state.current}
+          current={current}
         />
       </div>
     )

@@ -1,16 +1,16 @@
 import React from 'react'
-import { Menu, Anchor } from 'antd'
+import {Menu, Anchor} from 'antd'
 import '../style/MovieMenu.less'
 
-const { Link } = Anchor
+const {Link} = Anchor
 
-const MovieMenu = () =>  {
+const MovieMenu = () => {
   return (
     <Anchor className='movie_menu'>
-      <Link href="#hotShowing" title="正在热映" />
-      <Link href="#comingSoon" title="即将上映" />
-      <Link href="#Top25" title="Top25" />
-      <Link href="#usBox" title="北美票房榜" />
+      <Link href="#hotShowing" title="正在热映"/>
+      <Link href="#comingSoon" title="即将上映"/>
+      <Link href="#Top25" title="Top25"/>
+      <Link href="#usBox" title="北美票房榜"/>
     </Anchor>
   );
 }

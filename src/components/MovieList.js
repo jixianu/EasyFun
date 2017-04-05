@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import MovieItem from './MovieItem'
-import {Row, Spin} from 'antd'
+import {Row} from 'antd'
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -9,11 +9,12 @@ export default class MovieList extends Component {
 
   render() {
     let itemList = null;
+    const {MoviesData, type, current} = this.props;
     // 判断是否有数据
-    if (this.props.MoviesData) {
+    if (MoviesData) {
       // 北美榜数据格式不同，进行判断
-      if (this.props.type === 'us_box') {
-        itemList = this.props.MoviesData.map(item => (
+      if (type === 'us_box') {
+        itemList = MoviesData.map(item => (
           <MovieItem
             key={item.subject.id}
             imgUrl={item.subject.images.large}
@@ -21,10 +22,10 @@ export default class MovieList extends Component {
             rating={item.subject.rating.average}
           />
         ));
-        let endlength = this.props.current*4 < itemList.length ? this.props.current*4 : itemList.length;
-        itemList = itemList.slice((this.props.current-1)*4, endlength);
+        let endlength = current*4 < itemList.length ? current*4 : itemList.length;
+        itemList = itemList.slice((current-1)*4, endlength);
       } else {
-        itemList = this.props.MoviesData.map(item => (
+        itemList = MoviesData.map(item => (
           <MovieItem
             key={item.id}
             imgUrl={item.images.large}
