@@ -1,35 +1,81 @@
-@import "base";
-
 .logo {
-  .db;
-  .h64;
+  display: block;
+  line-height: 64px;
+  height: 64px;
   background: url('../image/logo.png') left center no-repeat;
   background-position: 0 0;
 }
 
 .header_tab {
-  .fr;
-  .h64;
+  float: right;
+  line-height: 62px;
   li {
     a {
-      .db;
-      .fz18;
-      .tc;
+      display: block;
+      font-size: 18px;
+      text-align: center;
+      height: 64px;
       &:hover {
-        color: @current
+        color: #f2bd00
       }
     }
-    .w80;
-    .fl;
+    width: 80px;
+    float: left;
     height: 62px;
   }
 }
 
 .header_curPage {
-  color: @current;
-  .w80;
-  .h64;
-  .db;
-  .tc;
-  border-bottom: 2px solid @theme;
+  color: #f2bd00;
+  width: 80px;
+  line-height: 64px;
+  display: block;
+  text-align: center;
+  border-bottom: 2px solid #108ee9;
+}
+
+/*覆盖样式*/
+.ant-layout-header {
+  background-color: #fcfcfc;
+  height: 64px;
+  line-height: 64px;
+
+  .ant-row {
+    border-bottom: 1px solid #eee;
+  }
+}
+
+.center {
+  padding: 10px 50px 0px 50px;
+  .ant-layout-content {
+    padding: 0px 8px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  .ant-layout, .ant-layout-sider {
+    overflow-x: hidden;
+    background-color: #fcfcfc;
+  }
+
+  .ant-menu {
+    text-align: center;
+    margin-right: 10px;
+    background-color: #fff;
+  }
+
+  .ant-menu-inline, .ant-menu-vertical {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+
+  //右侧中心显示区域
+  .content {
+    padding-left: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow-x: hidden;
+  }
 }
