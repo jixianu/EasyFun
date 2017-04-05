@@ -1,13 +1,15 @@
 import React, {Component, PropTypes} from 'react'
 import {Modal, Icon, Form, Input, Button, Checkbox} from 'antd'
 import WrappedNormalLoginForm from './LoginForm'
+import WrappedRegistrationForm from './Register'
+
 import '../style/Login'
 
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ModalText: 'Content of the modal dialog',
+      isRegister: false,
       visible: false,
       confirmLoading: false
     };
@@ -21,7 +23,6 @@ export default class Login extends Component {
 
   handleOk = () => {
     this.setState({
-      ModalText: 'The modal dialog will be closed after two seconds',
       confirmLoading: true
     });
     setTimeout(() => {
@@ -33,9 +34,19 @@ export default class Login extends Component {
   }
 
   handleCancel = () => {
-    console.log('Clicked cancel button');
     this.setState({
       visible: false
+    });
+  }
+
+  handleRegiste = () => {
+    this.setState({
+      isRegister: true
+    });
+  }
+  handleBack = () => {
+    this.setState({
+      isRegister: false
     });
   }
 
@@ -46,13 +57,23 @@ export default class Login extends Component {
           <Icon type="user" className='login_icon'/>
           登录
         </div>
-        <Modal title="Title of the modal dialog"
+        <Modal title={ this.state.isRegister ?
+          <div style={{position: 'relative'}}>
+            <span
+              className='modal_back'
+              onClick={this.handleBack}
+            >
+              <Icon type="arrow-left"/>
+            </span>
+            注册
+          </div> : '登录'}
                visible={this.state.visible}
-               onOk={this.handleOk}
                confirmLoading={this.state.confirmLoading}
+               footer={null}
                onCancel={this.handleCancel}
         >
-          <WrappedNormalLoginForm/>
+          { this.state.isRegister ? <WrappedRegistrationForm /> :
+            <WrappedNormalLoginForm isRegiste={this.handleRegiste}/> }
         </Modal>
       </div>
     );
