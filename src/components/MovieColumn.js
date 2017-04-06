@@ -9,16 +9,10 @@ import * as config from '../config'
 import 'antd/dist/antd.less'
 
 export default class MovieColumn extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isLoading: true,
-      MoviesData: null,
-      current: 1
-    }
-
-    this.pageChange = this.pageChange.bind(this);
-    this.resolve = this.resolve.bind(this);
+  state = {
+    isLoading: true,
+    MoviesData: null,
+    current: 1
   }
 
   componentWillMount() {
@@ -30,14 +24,14 @@ export default class MovieColumn extends Component {
     });
   }
 
-  resolve(json) {
+  resolve = json => {
     this.setState({
       MoviesData: json.subjects,
       isLoading: false
     })
   }
 
-  pageChange(page) {
+  pageChange = page => {
     this.setState({
       current: page
     })

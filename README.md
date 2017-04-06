@@ -30,6 +30,9 @@
 配置webpack与包管理  
 2.25
 配置webpack开发热更新
+4.6
+使用stage-0编程，这样可以省去bind(this)
+使用聚合数据API与localStorage做用户登录,接口只能接受username-aaa
 
 ###问题
 

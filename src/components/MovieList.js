@@ -3,10 +3,6 @@ import MovieItem from './MovieItem'
 import {Row} from 'antd'
 
 export default class MovieList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let itemList = null;
     const {MoviesData, type, current} = this.props;

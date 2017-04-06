@@ -5,12 +5,9 @@ const propType = {
 }
 
 export default class Name extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {}
 
-  handle() {
+  handle = () => {
     this.setState((prevState) => ({
       secondsElapsed: prevState.secondsElapsed + 1
     }));

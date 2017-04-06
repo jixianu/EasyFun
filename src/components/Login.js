@@ -1,36 +1,28 @@
 import React, {Component, PropTypes} from 'react'
-import {Modal, Icon, Form, Input, Button, Checkbox} from 'antd'
-import WrappedNormalLoginForm from './LoginForm'
-import WrappedRegistrationForm from './Register'
+import {Modal, Icon, Button, message} from 'antd'
+import LoginForm from './LoginForm'
+import Register from './Register'
 
 import '../style/Login'
 
 export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isRegister: false,
-      visible: false,
-      confirmLoading: false
-    };
+  state = {
+    action: 'login',
+    visible: false,
+    confirmLoading: false,
+    isLogin: false
   }
-
+  componentWillMount() {
+    if (localStorage.userNickName) {
+      this.setState({
+        isLogin: true
+      })
+    }
+  }
   showModal = () => {
     this.setState({
       visible: true
     });
-  }
-
-  handleOk = () => {
-    this.setState({
-      confirmLoading: true
-    });
-    setTimeout(() => {
-      this.setState({
-        visible: false,
-        confirmLoading: false
-      });
-    }, 2000);
   }
 
   handleCancel = () => {
@@ -41,23 +33,59 @@ export default class Login extends Component {
 
   handleRegiste = () => {
     this.setState({
-      isRegister: true
+      action: 'register'
     });
   }
+
+  handleRegisterDone = () => {
+    this.setState({
+      visible: false,
+      isLogin: true
+    })
+  }
+
   handleBack = () => {
     this.setState({
-      isRegister: false
+      action: 'login'
     });
+  }
+
+  logout = () => {
+    this.setState({
+      isLogin: false,
+      action: 'login'
+    })
+  }
+
+  loginDone = () => {
+    this.setState({
+      isLogin: true,
+      visible: false
+    });
+    message.success("登录成功！");
   }
 
   render() {
     return (
       <div className="login">
-        <div onClick={this.showModal}>
-          <Icon type="user" className='login_icon'/>
-          登录
+        <div>
+          {this.state.isLogin ?
+            <Button onClick={this.logout}>
+              <Icon type="user"
+                    className='login_icon'
+              />
+              {localStorage.userNickName} 注 销
+            </Button>
+            :
+            <Button onClick={this.showModal}>
+              <Icon type="user"
+                    className='login_icon'
+              />
+              登录
+            </Button>
+          }
         </div>
-        <Modal title={ this.state.isRegister ?
+        <Modal title={ this.state.action === 'register' ?
           <div style={{position: 'relative'}}>
             <span
               className='modal_back'
@@ -66,14 +94,16 @@ export default class Login extends Component {
               <Icon type="arrow-left"/>
             </span>
             注册
-          </div> : '登录'}
+          </div> : '登录'
+        }
                visible={this.state.visible}
-               confirmLoading={this.state.confirmLoading}
                footer={null}
                onCancel={this.handleCancel}
         >
-          { this.state.isRegister ? <WrappedRegistrationForm /> :
-            <WrappedNormalLoginForm isRegiste={this.handleRegiste}/> }
+          { this.state.action === 'register' ?
+            <Register handleRegisterDone={this.handleRegisterDone}/>
+            :
+            <LoginForm isRegiste={this.handleRegiste} loginDone={this.loginDone}/> }
         </Modal>
       </div>
     );
