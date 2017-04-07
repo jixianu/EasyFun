@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
-import { Form, Icon, Input, Button, message } from 'antd';
+import {Form, Icon, Input, Button, message} from 'antd';
+import {fetch_login} from '../common/fetch'
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
@@ -11,31 +12,35 @@ class LoginForm extends Component {
       let formData = this.props.form.getFieldsValue();
       // console.log(formData);
       if (!err) {
-        if (formData.userName === localStorage.getItem('userNickName') && formData.password === localStorage.getItem('password')) {
+        if (values.userName === localStorage.getItem('string') && values.password === localStorage.getItem('password')) {
           this.props.loginDone();
         } else {
           message.error('登录失败!');
         }
+        // API接收登录，但不会校验
+        // fetch_login(Object.assign({}, {action: 'login'}, formData), this.callback);
+      } else {
+        message.error('登录失败!');
       }
     });
   }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const {getFieldDecorator} = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
           {getFieldDecorator('userName', {
-            rules: [{ required: true, message: '请输入用户名!' }],
+            rules: [{required: true, message: '请输入用户名!'}],
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="用户名" />
+            <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="用户名"/>
           )}
         </FormItem>
         <FormItem>
           {getFieldDecorator('password', {
-            rules: [{ required: true, message: '请输入密码!' }],
+            rules: [{required: true, message: '请输入密码!'}],
           })(
-            <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="密码" />
+            <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password" placeholder="密码"/>
           )}
         </FormItem>
         <FormItem>

@@ -3,7 +3,7 @@ import ColumnHeader from '../components/ColumnHeader'
 import MovieList from '../components/MovieList'
 import Pages from '../components/Pages'
 import {Spin} from 'antd';
-import fetch_movie from '../common/fetch'
+import {fetch_movie} from '../common/fetch'
 import * as config from '../config'
 
 import 'antd/dist/antd.less'

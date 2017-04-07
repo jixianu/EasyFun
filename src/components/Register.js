@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Input, Button, Radio, InputNumber, message} from 'antd';
+import {fetch_login} from '../common/fetch'
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
@@ -18,34 +19,43 @@ class RegistrationForm extends Component {
     // 但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        let formData = this.props.form.getFieldsValue();
+        fetch_login(Object.assign({}, {action: this.props.action}, values), this.callback);
       }
     });
-    let formData = this.props.form.getFieldsValue();
-    console.log(formData)
     // 页面开始向 API 进行提交数据
-    // fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=login&username=${formData.string}&password=${formData.password}&confirmPassword=${formData.confirm}`, {method: 'GET'})
-    // API接口数据固定先
-    fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=login&username=aaa&password=111&confirmPassword=111`, {method: 'GET'})
-      .then(response => response.json())
-      .then(json => {
-        // 设置本地缓存,由于API接口固定aaa账户，所以这里不适用jsonAPI数据
-        localStorage.setItem('userNickName', formData.string);
-        localStorage.setItem('password', formData.password);
-        localStorage.setItem('confirm', formData.confirm);
-        localStorage.setItem('sex', formData.sex);
-        localStorage.setItem('age', formData.age);
+    /*fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=register&username=${formData.string}&password=${formData.password}&confirmPassword=${formData.confirm}`, {method: 'GET'})
+     // API接口数据固定先
+     // fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=login&username=aaa&password=111&confirmPassword=111`, {method: 'GET'})
+     .then(response => response.json())
+     .then(json => {
+     console.log(json);
+     // 设置本地缓存,由于API接口固定aaa账户，所以这里不适用jsonAPI数据
+     localStorage.setItem('userNickName', formData.string);
+     localStorage.setItem('password', formData.password);
+     localStorage.setItem('confirm', formData.confirm);
+     localStorage.setItem('sex', formData.sex);
+     localStorage.setItem('age', formData.age);
 
-        setTimeout(()=>{
-          message.success("请求成功!");
-          this.setState({
-            isSubmitting: false
-          });
-          this.props.handleRegisterDone();
-        },1500);
-      })
+     setTimeout(()=>{
+     message.success("请求成功!");
+     this.setState({
+     isSubmitting: false
+     });
+     this.props.handleRegisterDone();
+     },1500);
+     })*/
+
   }
-
+  callback = () => {
+    setTimeout(()=> {
+      message.success("请求成功!");
+      this.setState({
+        isSubmitting: false
+      });
+      this.props.handleRegisterDone();
+    }, 1500);
+  }
   handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({confirmDirty: this.state.confirmDirty || !!value});
@@ -136,7 +146,7 @@ class RegistrationForm extends Component {
             }, {
               validator: this.checkPassword,
             }],
-            validateTrigger:'onBlur'
+            validateTrigger: 'onBlur'
           })(
             <Input type="password" onBlur={this.handleConfirmBlur}/>
           )}
@@ -168,11 +178,12 @@ class RegistrationForm extends Component {
         <FormItem
           {...tailFormItemLayout}
         >
-          <Button type="primary" htmlType="submit" size="large" className='login-form-button' loading={this.state.isSubmitting}>提 交</Button>
+          <Button type="primary" htmlType="submit" size="large" className='login-form-button'
+                  loading={this.state.isSubmitting}>提 交</Button>
         </FormItem>
       </Form>
     );
   }
 }
 
-export default RegistrationForm= Form.create({})(RegistrationForm)
+export default RegistrationForm = Form.create({})(RegistrationForm)

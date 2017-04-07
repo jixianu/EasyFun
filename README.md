@@ -33,7 +33,8 @@
 4.6
 使用stage-0编程，这样可以省去bind(this)
 使用聚合数据API与localStorage做用户登录,接口只能接受username-aaa
-
+4.7
+使用redux管理数据
 ###问题
 
 1.公共的base，其他css引用是不是每次都要引用

@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import {Layout} from 'antd'
+import {Layout, Button} from 'antd'
 import MovieMenu from '../components/MovieMenu'
 import Test from '../components/test'
-
+import {fetch_login} from '../common/fetch'
 const {Content, Sider} = Layout
 
 export default class HomeContainer extends Component {
@@ -31,13 +31,7 @@ export default class HomeContainer extends Component {
   }
 
   click = ()=> {
-    /*fetch("http://newsapi.gugujiankong.com/Handler.ashx?action=login&username=aaa&password=123&confirmPassword=123", {method: 'get'})
-      .then(response => response.json())
-      .then(json => {
-        console.log(json);
-        /!*localStorage.userid = json.UserId;
-         localStorage.userNickName = json.NickUserName;*!/
-      })*/
+    
   }
 
   render() {
@@ -48,6 +42,7 @@ export default class HomeContainer extends Component {
         </Sider>
         <Content className='content'>
           <Test second={this.state.date.toLocaleTimeString()} text="txt"/>
+          <Button onClick={this.click}>test</Button>
         </Content>
       </Layout>
     )

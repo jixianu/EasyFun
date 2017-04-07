@@ -13,12 +13,13 @@ export default class Login extends Component {
     isLogin: false
   }
   componentWillMount() {
-    if (localStorage.userNickName) {
+    if (localStorage.string) {
       this.setState({
         isLogin: true
       })
     }
   }
+
   showModal = () => {
     this.setState({
       visible: true
@@ -74,7 +75,7 @@ export default class Login extends Component {
               <Icon type="user"
                     className='login_icon'
               />
-              {localStorage.userNickName} 注 销
+              {localStorage.string} 注 销
             </Button>
             :
             <Button onClick={this.showModal}>
@@ -101,9 +102,9 @@ export default class Login extends Component {
                onCancel={this.handleCancel}
         >
           { this.state.action === 'register' ?
-            <Register handleRegisterDone={this.handleRegisterDone}/>
+            <Register handleRegisterDone={this.handleRegisterDone} action={this.state.action}/>
             :
-            <LoginForm isRegiste={this.handleRegiste} loginDone={this.loginDone}/> }
+            <LoginForm isRegiste={this.handleRegiste} loginDone={this.loginDone} action={this.state.action}/> }
         </Modal>
       </div>
     );
