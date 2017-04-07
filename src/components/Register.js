@@ -5,7 +5,6 @@ const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
 class RegistrationForm extends Component {
-
   state = {
     confirmDirty: false,
     isSubmitting: false
@@ -19,37 +18,14 @@ class RegistrationForm extends Component {
     // 但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        let formData = this.props.form.getFieldsValue();
-        fetch_login(Object.assign({}, {action: this.props.action}, values), this.callback);
+        fetch_login(Object.assign({}, {action: this.props.action}, values))
+          .then(() => this.callback());
       }
     });
-    // 页面开始向 API 进行提交数据
-    /*fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=register&username=${formData.string}&password=${formData.password}&confirmPassword=${formData.confirm}`, {method: 'GET'})
-     // API接口数据固定先
-     // fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=login&username=aaa&password=111&confirmPassword=111`, {method: 'GET'})
-     .then(response => response.json())
-     .then(json => {
-     console.log(json);
-     // 设置本地缓存,由于API接口固定aaa账户，所以这里不适用jsonAPI数据
-     localStorage.setItem('userNickName', formData.string);
-     localStorage.setItem('password', formData.password);
-     localStorage.setItem('confirm', formData.confirm);
-     localStorage.setItem('sex', formData.sex);
-     localStorage.setItem('age', formData.age);
-
-     setTimeout(()=>{
-     message.success("请求成功!");
-     this.setState({
-     isSubmitting: false
-     });
-     this.props.handleRegisterDone();
-     },1500);
-     })*/
-
   }
   callback = () => {
     setTimeout(()=> {
-      message.success("请求成功!");
+      message.success("注册成功!");
       this.setState({
         isSubmitting: false
       });
@@ -145,8 +121,7 @@ class RegistrationForm extends Component {
               required: true, message: '请再次确认密码!',
             }, {
               validator: this.checkPassword,
-            }],
-            validateTrigger: 'onBlur'
+            }]
           })(
             <Input type="password" onBlur={this.handleConfirmBlur}/>
           )}

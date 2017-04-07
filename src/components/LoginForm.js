@@ -1,22 +1,15 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Icon, Input, Button, message} from 'antd';
-import {fetch_login} from '../common/fetch'
 const FormItem = Form.Item;
 
 class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // 可以获取表单的值
+    // 获取表单的值
     this.props.form.validateFields((err, values) => {
-      let formData = this.props.form.getFieldsValue();
-      // console.log(formData);
-      if (!err) {
-        if (values.userName === localStorage.getItem('string') && values.password === localStorage.getItem('password')) {
+      if (!err && values.userName === localStorage.getItem('string') && values.password === localStorage.getItem('password')) {
           this.props.loginDone();
-        } else {
-          message.error('登录失败!');
-        }
         // API接收登录，但不会校验
         // fetch_login(Object.assign({}, {action: 'login'}, formData), this.callback);
       } else {

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import ColumnHeader from '../components/ColumnHeader'
 import MovieList from '../components/MovieList'
 import Pages from '../components/Pages'
-import {Spin} from 'antd';
 import {fetch_movie} from '../common/fetch'
 import * as config from '../config'
 
@@ -19,16 +18,21 @@ export default class MovieColumn extends Component {
     fetch_movie({
       start: config.DEFAULT_START,
       count: config.DEFAULT_COUNT,
-      type: this.props.type,
-      resolve: this.resolve
-    });
+      type: this.props.type
+    }).then(data=> {
+      this.resolve(data)
+    }).catch(err=> {
+      console.log('parsing failed', err);
+    })
   }
 
-  resolve = json => {
-    this.setState({
-      MoviesData: json.subjects,
-      isLoading: false
-    })
+  resolve = data => {
+    if (data) {
+      this.setState({
+        MoviesData: data.subjects,
+        isLoading: false
+      })
+    }
   }
 
   pageChange = page => {
@@ -38,9 +42,12 @@ export default class MovieColumn extends Component {
     fetch_movie({
       start: (page - 1) * config.DEFAULT_COUNT,
       count: config.DEFAULT_COUNT,
-      type: this.props.type,
-      resolve: this.resolve
-    });
+      type: this.props.type
+    }).then(data=> {
+      this.resolve(data)
+    }).catch(err=> {
+      console.log('parsing failed', err);
+    })
   }
 
   render() {

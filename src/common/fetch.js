@@ -13,16 +13,12 @@ export function fetch_movie(opt) {
     timeout: 3000,
   });
 
-  result.then(function (response) {
+  return result.then(response=> {
     return response.json();
-  }).then(function (json) {
-    opt.resolve(json);
-  }).catch(function (ex) {
-    console.log('parsing failed', ex);
   })
 }
 
-export function fetch_login(opt, callback) {
+export function fetch_login(opt) {
   if (!opt) {
     return false;
   }
@@ -33,12 +29,21 @@ export function fetch_login(opt, callback) {
   }
   params = params.substring(1);
   let LOGIN_PATH = `${config.LOGIN_PATH}?${params}`;
-  fetch(LOGIN_PATH, {method: 'GET'})
-    .then(response => response.json())
-    .then(json => {
-      callback();
+  return fetch(LOGIN_PATH, {method: 'GET'})
+    .then(response => {
+      return response.json()
     })
-    .catch(function (ex) {
-      console.log('parsing failed', ex);
+    .catch(function (err) {
+      console.log('parsing failed', err);
+    })
+}
+
+export function fetch_test() {
+  return fetch('../data/test.json')
+    .then(response=> {
+      return response.json();
+    })
+    .then(data => {
+      return data;
     })
 }

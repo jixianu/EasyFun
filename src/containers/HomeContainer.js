@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Layout, Button} from 'antd'
 import MovieMenu from '../components/MovieMenu'
 import Test from '../components/test'
-import {fetch_login} from '../common/fetch'
+import {fetch_test} from '../common/fetch'
 const {Content, Sider} = Layout
 
 export default class HomeContainer extends Component {
@@ -31,7 +31,9 @@ export default class HomeContainer extends Component {
   }
 
   click = ()=> {
-    
+    fetch_test()
+      .then(data=>console.log(data))
+      .then(data=>console.log(data))
   }
 
   render() {
