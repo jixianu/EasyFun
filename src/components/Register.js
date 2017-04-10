@@ -23,6 +23,7 @@ class RegistrationForm extends Component {
       }
     });
   }
+
   callback = () => {
     setTimeout(()=> {
       message.success("注册成功!");
@@ -32,6 +33,7 @@ class RegistrationForm extends Component {
       this.props.handleRegisterDone();
     }, 1500);
   }
+
   handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({confirmDirty: this.state.confirmDirty || !!value});
@@ -153,8 +155,12 @@ class RegistrationForm extends Component {
         <FormItem
           {...tailFormItemLayout}
         >
-          <Button type="primary" htmlType="submit" size="large" className='login-form-button'
-                  loading={this.state.isSubmitting}>提 交</Button>
+          <Button type="primary"
+                  htmlType="submit"
+                  size="large"
+                  className='login-form-button'
+                  loading={this.state.isSubmitting}>提 交
+          </Button>
         </FormItem>
       </Form>
     );

@@ -7,7 +7,7 @@ const Foot = () => {
   return (
     <Footer className='wrap tc'>
       EasyFun ©2017 Created by xiaomeng.
-      Data from douban OAuth2.0.Thanks for douban.com
+      Thanks for douban's Data OAuth2.0.
     </Footer>
   )
 }
