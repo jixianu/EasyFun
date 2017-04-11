@@ -3,17 +3,16 @@
   background-image: url("../image/banner.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 36px 10px 0px 50px;
+  padding: 26px 10px 0px 100px;
 }
 
 .movie_introduce {
   height: 260px;
-  border: 1px solid #eee;
 }
 
 .movie_poster {
-  width: 240px;
-  height: 260px;
+  width: 220px;
+  height: 300px;
   float: left;
   img {
     width: 100%;
@@ -22,11 +21,22 @@
 }
 
 .movie_info {
+  width: 400px;
+  padding-left: 50px;
   color: #FFF;
   float: left;
+  h1 {
+    margin-bottom: 20px;
+  }
+  p {
+    padding: 8px 0px;
+  }
 }
 
 .movie_content {
+  width: 200px;
+  padding-left: 50px;
+  padding-top: 50px;
   color: #FFF;
   float: left;
 }
@@ -34,5 +44,30 @@
 .movie_gate {
   font-size: 50px;
   font-style: italic;
-  color: #108ee9;
+  color: #5AFF00;
+  padding: 20px;
+  text-align: center;
+}
+
+.actor {
+  :last-child {
+    margin-right: 0px;
+  }
+  li {
+    float: left;
+    margin-right: 20px;
+    p {
+      text-align: center;
+      height: 20px;
+    }
+    a {
+      display: inline-block;
+      width: 128px;
+      height: 170px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }

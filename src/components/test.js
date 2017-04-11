@@ -1,10 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 
 export default class Test extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  state = {}
 
   render() {
     const second = this.props.second;

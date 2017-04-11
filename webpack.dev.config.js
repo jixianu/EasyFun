@@ -43,15 +43,18 @@ module.exports = {
         loader: 'url'
       }
     ]
-  },
-  // 其它解决方案配置
+  }
+  ,
+// 其它解决方案配置
   resolve: {
     // 后缀
     extensions: ['', '.js', '.jsx', '.json', '.less']
-  },
-  // 插件
+  }
+  ,
+// 插件
   plugins: [
     new OpenBrowserPlugin({url: 'http://localhost:8080/#/'}),
     new ExtractTextPlugin("app.css")
   ]
-};
+}
+;
