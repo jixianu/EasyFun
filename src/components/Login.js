@@ -12,7 +12,7 @@ export default class Login extends Component {
     confirmLoading: false,
     isLogin: false
   }
-  componentWillMount() {
+  componentDidMount() {
     if (localStorage.string) {
       this.setState({
         isLogin: true

@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
-import {Layout, Spin, Alert} from 'antd'
+import {Layout} from 'antd'
 import MovieMenu from '../components/MovieMenu'
 import MovieColumn from '../components/MovieColumn'
 
-// import 'antd/dist/antd.less'
-
+import '../style/Movie'
 const {Content, Sider} = Layout
 
 export default class MovieContainer extends Component {
-  constructor(props){
-    super(props);
-  }
-
   render() {
     return (
-      <div>
+      <div className='movie_home'>
         <Layout>
           <Sider>
             <MovieMenu />

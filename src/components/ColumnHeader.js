@@ -1,9 +1,9 @@
 import React from 'react'
 import {Icon} from 'antd'
 
-
 import '../style/Column'
-function ColumnHeader({title, isMore, id}) {
+
+const ColumnHeader = ({title, isMore, id })=> {
   return (
     <div className='column_header'>
       <span className='column_title' id={id}>

@@ -1,17 +1,30 @@
 import Mock from 'mockjs'
+const {Random} = Mock
 
-Mock.setup({
-  timeout:'1500-1800'
-});
-
-export let comments = Mock.mock({
-  'list|1-10': [{
-    'id|+1': 1
+export const comments = Mock.mock({
+  'commentList|5-8': [{
+    'id': '@natural',
+    'time': '@datetime(16-MM-dd HH:mm:ss)',
+    'name': '@cname',
+    'content': '@cparagraph',
+    'url': Random.image('50x50', Random.color(), '#FFF', Random.word(3, 5))
   }]
 });
 
-export let commetData = Mock.mock({
-  'list|1-10': [{
-    'id|+1': 1
+export const messages = Mock.mock({
+  'messageList|5-8': [{
+    'id': '@natural',
+    'title': '@ctitle(5,10)',
+    'name': '@name',
+    'url': Random.image('40x40', Random.color(), '#FFF', Random.word(3, 5))
+  }]
+});
+
+export const correlations = Mock.mock({
+  'correlationList|5-8': [{
+    'id': '@natural',
+    'title': '@ctitle(6,10)',
+    'name': '@name',
+    'url': Random.image('40x40', Random.color(), '#FFF', Random.word(3, 5))
   }]
 });

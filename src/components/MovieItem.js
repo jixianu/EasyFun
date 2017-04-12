@@ -2,9 +2,7 @@ import React, {Component} from 'react'
 import {Col} from 'antd'
 import * as config from '../config'
 
-import '../style/MovieItem'
-
-function MovieItem({imgUrl, title, rating, genre}) {
+const MovieItem = ({imgUrl, title, rating, genre}) => {
   // 返回JSX结构
   return (
     <Col span={24 / config.DEFAULT_COUNT}>

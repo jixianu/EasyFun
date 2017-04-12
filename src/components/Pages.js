@@ -3,7 +3,7 @@ import { Pagination } from 'antd'
 
 import '../style/Pages'
 
-function Pages({current, total, onChange, defaultPageSize, id}){
+const Pages = ({current, total, onChange, defaultPageSize, id}) => {
   return (
     <div className="Pages" id= {id}>
       <Pagination

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Menu, Anchor} from 'antd'
-import '../style/MovieMenu.less'
 
 const {Link} = Anchor
 

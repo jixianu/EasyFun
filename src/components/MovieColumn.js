@@ -14,7 +14,7 @@ export default class MovieColumn extends Component {
     current: 1
   }
 
-  componentWillMount() {
+  componentDidMount() {
     fetch_movie({
       start: config.DEFAULT_START,
       count: config.DEFAULT_COUNT,
