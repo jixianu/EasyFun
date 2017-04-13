@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ColumnHeader from '../components/ColumnHeader'
 import MovieList from '../components/MovieList'
+import Loading from './Loading'
 import Pages from '../components/Pages'
 import {fetch_movie} from '../common/fetch'
 import * as config from '../config'
@@ -9,18 +10,21 @@ import 'antd/dist/antd.less'
 
 export default class MovieColumn extends Component {
   state = {
-    isLoading: true,
+    isLoading: false,
     MoviesData: null,
     current: 1
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    });
     fetch_movie({
       start: config.DEFAULT_START,
       count: config.DEFAULT_COUNT,
       type: this.props.type
     }).then(data=> {
-      this.resolve(data)
+      this.resolve(data);
     }).catch(err=> {
       console.log('parsing failed', err);
     })
@@ -56,21 +60,24 @@ export default class MovieColumn extends Component {
     return (
       <div>
         <ColumnHeader
+          id={id}
           title={title}
           isMore={false}
-          id={id}
         />
-        <MovieList
-          type={type}
-          MoviesData={MoviesData}
-          isLoading={isLoading}
-          current={current}
-        />
-        <Pages
-          total={total}
-          onChange={this.pageChange}
-          current={current}
-        />
+        { isLoading ? <Loading />:
+          <div>
+            <MovieList
+              type={type}
+              MoviesData={MoviesData}
+              current={current}
+            />
+            <Pages
+              total={total}
+              onChange={this.pageChange}
+              current={current}
+            />
+          </div>
+        }
       </div>
     )
   }

@@ -13,17 +13,19 @@ export default class MovieList extends Component {
         itemList = MoviesData.map(item => (
           <MovieItem
             key={item.subject.id}
+            id={item.subject.id}
             imgUrl={item.subject.images.large}
             title={item.subject.title}
             rating={item.subject.rating.average}
           />
         ));
-        let endlength = current*4 < itemList.length ? current*4 : itemList.length;
-        itemList = itemList.slice((current-1)*4, endlength);
+        let endlength = current * 4 < itemList.length ? current * 4 : itemList.length;
+        itemList = itemList.slice((current - 1) * 4, endlength);
       } else {
         itemList = MoviesData.map(item => (
           <MovieItem
             key={item.id}
+            id={item.id}
             imgUrl={item.images.large}
             title={item.title}
             rating={item.rating.average}

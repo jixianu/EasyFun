@@ -1,34 +1,60 @@
-import React from 'react'
-import {Card, Icon, Spin, Col} from 'antd'
-import {comments} from '../common/mock'
+import React, {Component} from 'react'
+import {Card, Icon, Spin, Col, Button} from 'antd'
+import {comments, commentsMore} from '../common/mock'
 import MovieActor from '../components/MovieActor'
+import ListLoadMore from '../components/ListLoadMore'
+import Loading from './Loading'
 
-const MovieIntro = ({isLoading, data}) => {
-  return (
-    <Col span={18}>
-      <Card title="影片简介" className='movie_intro'>
-        {isLoading ? <Spin /> : data.summary}
-      </Card>
-      {isLoading ?
-        <Spin /> :
-        <MovieActor
-          directors={data.directors}
-          casts={data.casts}
-          isLoading={isLoading}
-        />
-      }
-      <Card title="评论">
-        <div className='movie_comment'>
+export default class MovieIntro extends Component {
+  state = {
+    commentList: comments.commentList,
+    count: 1,
+    iconLoading: false
+  }
+  handleClick = ()=> {
+    this.setState({
+      iconLoading: true
+    });
+    setTimeout(()=> {
+      this.setState({
+        count: this.state.count > 0 ? this.state.count - 1 : 0,
+        iconLoading: false,
+        commentList: [...this.state.commentList, ...commentsMore.commentList]
+      });
+    }, 1000);
+  }
+
+  render() {
+    let commentList = this.state.commentList.map((item)=>(
+        <div className='movie_comment' key={item.id}>
           <div className='movie_commentator'>
-            <img src="../image/bg.jpg"/>
+            <img src={item.url}/>
+            <span>{item.name}</span>
+            <span className='movie_commentdate'>{item.time}</span>
           </div>
-          <div className='movie_commentdate'>
-            <p>{new Date().toLocaleDateString()}</p>
-          </div>
+          <p>{item.content}</p>
         </div>
-      </Card>
-    </Col>
-  )
+      )
+    );
+    return (
+      <Col span={18}>
+        <Card title="影片简介" className='movie_intro'>
+          {this.props.isLoading ? <Loading /> : this.props.data.summary}
+        </Card>
+        <MovieActor
+          directors={this.props.isLoading ? null : this.props.data.directors}
+          casts={this.props.isLoading ? null : this.props.data.casts}
+          isLoading={this.props.isLoading}
+        />
+        <Card title="评论">
+          {commentList}
+          <ListLoadMore
+            isLoading={this.state.iconLoading}
+            handleClick={this.handleClick}
+            count={this.state.count}
+          />
+        </Card>
+      </Col>
+    )
+  }
 }
-
-export default MovieIntro
