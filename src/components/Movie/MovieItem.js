@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
-
 import {Col} from 'antd'
-
-import * as config from '../config'
+import * as config from '../../config'
 
 const MovieItem = ({imgUrl, title, rating, genre, id}) => {
   // 返回JSX结构

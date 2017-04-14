@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, Icon, Spin} from 'antd'
-import Loading from './Loading'
+import Loading from '../Loading'
 
 const MovieActors = ({directors, casts, isLoading}) => {
   let actorList;

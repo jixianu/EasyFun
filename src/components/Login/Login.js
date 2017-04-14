@@ -3,7 +3,7 @@ import {Modal, Icon, Button, message} from 'antd'
 import LoginForm from './LoginForm'
 import Register from './Register'
 
-import '../style/Login'
+import '../../style/Login'
 
 export default class Login extends Component {
   state = {

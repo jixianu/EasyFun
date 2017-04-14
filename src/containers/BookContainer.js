@@ -12,7 +12,7 @@ export default class BookContainer extends Component {
   render() {
     return (
       <div>
-         Book
+         敬请期待...
       </div>
     )
   }

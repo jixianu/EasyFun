@@ -1,7 +1,7 @@
 import React from 'react'
 import {Icon} from 'antd'
 
-import '../style/Column'
+import '../../style/Column'
 
 const ColumnHeader = ({title, isMore, id })=> {
   return (

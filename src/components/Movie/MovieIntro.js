@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Card, Icon, Spin, Col, Button} from 'antd'
-import {comments, commentsMore} from '../common/mock'
-import MovieActor from '../components/MovieActor'
-import ListLoadMore from '../components/ListLoadMore'
-import Loading from './Loading'
+import {comments, commentsMore} from '../../common/mock'
+import MovieActor from './MovieActor'
+import ListLoadMore from '../ListLoadMore'
+import Loading from '../Loading'
 
 export default class MovieIntro extends Component {
   state = {

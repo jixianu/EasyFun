@@ -1,12 +1,10 @@
 import React, {Component} from 'react'
-import ColumnHeader from '../components/ColumnHeader'
-import MovieList from '../components/MovieList'
-import Loading from './Loading'
-import Pages from '../components/Pages'
-import {fetch_movie} from '../common/fetch'
-import * as config from '../config'
-
-import 'antd/dist/antd.less'
+import ColumnHeader from './ColumnHeader'
+import MovieList from './MovieList'
+import Loading from '../Loading'
+import Pages from '../Pages'
+import {fetch_movie} from '../../common/fetch'
+import * as config from '../../config'
 
 export default class MovieColumn extends Component {
   state = {

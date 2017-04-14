@@ -40,3 +40,5 @@
 1.公共的base，其他css引用是不是每次都要引用
 2.怎么限制豆瓣的API访问次数，30次/min
 3.异步读取数据时，返回数据之前切换router会使页面报waring，setState nothing --- 使用redux-thunk解决
+4.fetch时mock的数据需要放在服务器环境才能拦截http请求,未解决
+5.首页音乐，图书数据时假的

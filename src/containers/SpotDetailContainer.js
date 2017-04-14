@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class SportContainer extends Component {
+export default class SpotDetailContainer extends Component {
   constructor(props){
     super(props);
     this.state = {};
@@ -12,7 +12,7 @@ export default class SportContainer extends Component {
   render() {
     return (
       <div>
-         Sport页面暂时不开发
+         SportDE页面暂时不开发
       </div>
     )
   }

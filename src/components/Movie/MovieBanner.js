@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Spin, Rate} from 'antd'
-import Loading from './Loading'
+import Loading from '../Loading'
 const MovieBanner = ({isLoading, data}) => {
   if (isLoading) {
     return (

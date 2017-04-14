@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {Layout, Rate, Card, Icon, Row, BackTop} from 'antd'
-import MovieBanner from '../components/MovieBanner'
-import MovieIntro from '../components/MovieIntro'
-import MovieAbout from '../components/MovieAbout'
+import MovieBanner from '../components/Movie/MovieBanner'
+import MovieIntro from '../components/Movie/MovieIntro'
+import MovieAbout from '../components/Movie/MovieAbout'
 import {fetch_movieDetail} from '../common/fetch'
 
 import '../style/MovieDetail'
