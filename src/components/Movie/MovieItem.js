@@ -6,8 +6,8 @@ import * as config from '../../config'
 const MovieItem = ({imgUrl, title, rating, genre, id}) => {
   // 返回JSX结构
   return (
-    <Col span={24 / config.DEFAULT_COUNT}>
-      <div className='movie_item'>
+    <Col span={24 / config.DEFAULT_COUNT} className='movie_item'>
+      <div>
         <div className='movie_img'>
           <Link to={'movie/' + id}>
             <img src={imgUrl}/>

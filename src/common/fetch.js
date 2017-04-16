@@ -8,7 +8,7 @@ export function fetch_movie(opt) {
   }
   let REQUEST_PATH = `${config.SERVER_PATH}movie/${opt.type}`;
   if (opt.type !== 'us_box') {
-    REQUEST_PATH += `?start=${opt.start}&count=${config.DEFAULT_COUNT}`
+    REQUEST_PATH += `?start=${opt.start}&count=${opt.count}`
   }
   const result = fetchJsonp(REQUEST_PATH, {
     timeout: 3000,
@@ -59,13 +59,38 @@ export function fetch_login(opt) {
     )
 }
 
+export function fetch_spot() {
+  // const result = ajax('http://news-at.zhihu.com/api/4/news/latest');
+  return fetch('http://news-at.zhihu.com/api/4/news/latest',
+    { method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/x-www-form-urlencoded",
+        'mode': "no-cors"
+      }
+    })
+    .then(function(res){
+      console.log(res)
+  });
+  /*return result.then(response=>{
+      return response.json();
+  });*/
+}
+
 // 测试
 export function fetch_test() {
   return fetch('../data/test.json')
     .then(response=> {
       return response.json();
     })
-    .then(data => {
-      return data;
-    })
+}
+
+function ajax(url) {
+  return new Promise(function(resolve, reject){
+    var xml = new XMLHttpRequest();
+    xml.open('get',url,true);
+    xml.onload = resolve;
+    xml.onerror = reject;
+    xml.send();
+  } )
 }
