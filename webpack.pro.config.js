@@ -16,11 +16,14 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
-      'antd'
+      'antd',
+      'mockjs'
     ]
   },
   output: {
     path: DIST_PATH,
+    //表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换
+    // publicPath: 'dist',
     filename: '[name].js',
     chunkFilename: '[name].[chunkhash:5].min.js'
   },
@@ -41,7 +44,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192&name=image/[name].[ext]'
+        loader: 'url-loader?limit=8192&name=image/[hash:8].[name].[ext]'
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,

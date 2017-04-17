@@ -23,12 +23,12 @@ export default class HomeContainer extends Component {
           id='movie'
           target='/movie'
         />
-        {/*<div className='carousel'>
+        <div className='carousel'>
           <Carousel autoplay>
-            <div><img src="http://img5.mtime.cn/mg/2017/04/12/084705.35310921.jpg"/></div>
-            <div><img src="http://img5.mtime.cn/mg/2017/04/16/072713.93270227.jpg"/></div>
-            <div><img src="http://img5.mtime.cn/mg/2017/04/13/093459.54877672.jpg"/></div>
-            <div><img src="http://img5.mtime.cn/mg/2017/04/14/085243.95232267.jpg"/></div>
+            <div><img src={require("../image/movie_carousel_1.jpg")}/></div>
+            <div><img src={require("../image/movie_carousel_2.jpg")}/></div>
+            <div><img src={require("../image/movie_carousel_3.jpg")}/></div>
+            <div><img src={require("../image/movie_carousel_4.jpg")}/></div>
           </Carousel>
         </div>
         <MovieColumn
@@ -39,7 +39,7 @@ export default class HomeContainer extends Component {
           noPage={true}
           noHead={true}
           count={5}
-        />*/}
+        />
         <ColumnHeader
           title='热点新闻'
           isMore={true}

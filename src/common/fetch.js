@@ -59,22 +59,13 @@ export function fetch_login(opt) {
     )
 }
 
-export function fetch_spot() {
+export function fetch_spot(opt) {
   // const result = ajax('http://news-at.zhihu.com/api/4/news/latest');
-  return fetch('http://news-at.zhihu.com/api/4/news/latest',
-    { method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/x-www-form-urlencoded",
-        'mode': "no-cors"
-      }
-    })
-    .then(function(res){
-      console.log(res)
-  });
-  /*return result.then(response=>{
+  return fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${opt.type}&count=${opt.count}`,
+    {method: 'GET'})
+    .then(response=> {
       return response.json();
-  });*/
+    })
 }
 
 // 测试
@@ -86,11 +77,11 @@ export function fetch_test() {
 }
 
 function ajax(url) {
-  return new Promise(function(resolve, reject){
+  return new Promise(function (resolve, reject) {
     var xml = new XMLHttpRequest();
-    xml.open('get',url,true);
+    xml.open('get', url, true);
     xml.onload = resolve;
     xml.onerror = reject;
     xml.send();
-  } )
+  })
 }
