@@ -38,3 +38,10 @@ export const correlations = Mock.mock({
     'url': Random.image('40x40', Random.color(), '#FFF', Random.word(3, 5))
   }]
 });
+
+export const musicTop = Mock.mock({
+  'musicList|10':[{
+    'uniquekey' : '@natural',
+    'title': '@ctitle(3,6)'
+  }]
+})

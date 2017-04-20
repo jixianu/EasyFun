@@ -2,9 +2,9 @@ import React, {Component} from 'react'
 import {Layout, Carousel, Button, Row, Col, Card} from 'antd'
 import ColumnHeader from '../components/ColumnHeader'
 import MovieColumn from '../components/Movie/MovieColumn'
-import {comments} from '../common/mock'
-import {fetch_movieDetail, fetch_test} from '../common/fetch'
 import SpotNews from '../components/Spot/SpotNews'
+import MusicColumn from '../components/Music/MusicColumn'
+import BookColumn from '../components/Book/BookColumn'
 
 import '../style/Home'
 import '../style/Movie'
@@ -23,7 +23,7 @@ export default class HomeContainer extends Component {
           id='movie'
           target='/movie'
         />
-        <div className='carousel'>
+        {/*<div className='carousel'>
           <Carousel autoplay>
             <div><img src={require("../image/movie_carousel_1.jpg")}/></div>
             <div><img src={require("../image/movie_carousel_2.jpg")}/></div>
@@ -39,27 +39,28 @@ export default class HomeContainer extends Component {
           noPage={true}
           noHead={true}
           count={5}
-        />
+        />*/}
         <ColumnHeader
           title='热点新闻'
           isMore={true}
           id='spot'
           target='/spot'
         />
-        <SpotNews
-        />
+        {/*<SpotNews/>*/}
         <ColumnHeader
           title='流行音乐'
           isMore={true}
           id='mosic'
           target='/music'
         />
+        {/*<MusicColumn />*/}
         <ColumnHeader
           title='热门图书'
           isMore={true}
           id='book'
           target='/book'
         />
+        <BookColumn />
       </Card>
     )
   }

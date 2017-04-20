@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
-import TopList from './TopList'
+import TopList from '../TopList'
 import Loading from '../Loading'
 import {fetch_spot} from '../../common/fetch'
 
@@ -33,7 +33,7 @@ export default class TopListBlock extends Component {
     const {isLoading} = this.state;
     return (
       <div className="topList">
-        {isLoading ? <Loading /> : <TopList newsData={this.state.newsData}/>}
+        {isLoading ? <Loading /> : <TopList data={this.state.newsData} title='热点头条' link='spot'/>}
       </div>
     )
   }

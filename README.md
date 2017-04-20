@@ -45,4 +45,5 @@
 6.fetch错误的catch怎么能统一返回一个数据组合？给一个state做判断，能不能统一返回一个DOM节点
 7.组件的大小样式是px像素，而当二次使用时不可适配，应使用百分比
 8.样式问题每个组件不推荐使用命名空间，这样组件使用时就需要在组件上使用命名空间
-9.webpack打包无法处理html中的img标签引用，使用html-withimg-loader处理HTML
+9.webpack打包无法处理html中的img标签引用，使用require()则会被编译
+10.react-router@4.0.2版本渲染是需要按照react-router-dom，没有hashHistory方法，推荐使用browserHistory

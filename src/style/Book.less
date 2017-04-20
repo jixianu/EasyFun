@@ -1,0 +1,51 @@
+.list-summary {
+  font-size: 0;
+  margin-bottom: -30px;
+  clear: both;
+  li {
+    width: 340px;
+    height: 180px;
+    float: left;
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+  .cover {
+    float: left;
+    margin-right: 18px;
+  }
+  .title {
+    font-size: 14px;
+    height: auto;
+    margin: 0;
+    background: none;
+  }
+  .info {
+    font-size: 12px;
+    margin-right: 20px;
+    height: 180px;
+    p {
+      margin: 0;
+      word-wrap: break-word;
+      .meta-label {
+        display: inline-block;
+        line-height: 1;
+        color: #fff;
+        padding: 2px 3px;
+        background-color: #a1a1a1;
+      }
+    }
+    .reviews {
+      color: #666;
+      clear: both;
+      padding-top: 15px;
+    }
+    .star-img {
+      color: #4dd197
+    }
+  }
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
