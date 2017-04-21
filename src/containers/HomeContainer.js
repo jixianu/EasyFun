@@ -1,29 +1,17 @@
 import React, {Component} from 'react'
-import {Layout, Carousel, Button, Row, Col, Card} from 'antd'
-import ColumnHeader from '../components/ColumnHeader'
+import {Carousel, Card, BackTop, Icon} from 'antd'
 import MovieColumn from '../components/Movie/MovieColumn'
-import SpotNews from '../components/Spot/SpotNews'
+import SpotColumn from '../components/Spot/SpotColumn'
 import MusicColumn from '../components/Music/MusicColumn'
 import BookColumn from '../components/Book/BookColumn'
 
 import '../style/Home'
-import '../style/Movie'
-
-const {Content, Sider} = Layout
 
 export default class HomeContainer extends Component {
-  state = {}
-
   render() {
     return (
-      <Card className='home movie_home'>
-        <ColumnHeader
-          title='电影栏目'
-          isMore={true}
-          id='movie'
-          target='/movie'
-        />
-        {/*<div className='carousel'>
+      <Card className='home'>
+        <div className='carousel'>
           <Carousel autoplay>
             <div><img src={require("../image/movie_carousel_1.jpg")}/></div>
             <div><img src={require("../image/movie_carousel_2.jpg")}/></div>
@@ -33,34 +21,21 @@ export default class HomeContainer extends Component {
         </div>
         <MovieColumn
           id='hotShowing'
-          title='正在热映'
+          title='热门电影'
           type='in_theaters'
           total={8}
           noPage={true}
           noHead={true}
           count={5}
-        />*/}
-        <ColumnHeader
-          title='热点新闻'
-          isMore={true}
-          id='spot'
-          target='/spot'
         />
-        {/*<SpotNews/>*/}
-        <ColumnHeader
-          title='流行音乐'
-          isMore={true}
-          id='mosic'
-          target='/music'
-        />
-        {/*<MusicColumn />*/}
-        <ColumnHeader
-          title='热门图书'
-          isMore={true}
-          id='book'
-          target='/book'
-        />
+        <SpotColumn/>
+        <MusicColumn />
         <BookColumn />
+        <BackTop>
+          <div className="ant-back-top-inner">
+            <Icon type="arrow-up"/>
+          </div>
+        </BackTop>
       </Card>
     )
   }

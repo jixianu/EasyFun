@@ -3,13 +3,12 @@ import {Layout} from 'antd'
 import MovieMenu from '../components/Movie/MovieMenu'
 import MovieColumn from '../components/Movie/MovieColumn'
 
-import '../style/Movie'
 const {Content, Sider} = Layout
 
 export default class MovieContainer extends Component {
   render() {
     return (
-      <div className='movie_home'>
+      <div>
         <Layout>
           <Sider>
             <MovieMenu />

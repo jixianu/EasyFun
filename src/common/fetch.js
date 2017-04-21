@@ -59,29 +59,11 @@ export function fetch_login(opt) {
     )
 }
 
+// 获取新闻热点
 export function fetch_spot(opt) {
-  // const result = ajax('http://news-at.zhihu.com/api/4/news/latest');
   return fetch(`http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=${opt.type}&count=${opt.count}`,
     {method: 'GET'})
     .then(response=> {
       return response.json();
     })
-}
-
-// 测试
-export function fetch_test() {
-  return fetch('../data/test.json')
-    .then(response=> {
-      return response.json();
-    })
-}
-
-function ajax(url) {
-  return new Promise(function (resolve, reject) {
-    var xml = new XMLHttpRequest();
-    xml.open('get', url, true);
-    xml.onload = resolve;
-    xml.onerror = reject;
-    xml.send();
-  })
 }

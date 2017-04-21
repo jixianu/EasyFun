@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router'
 
+import '../../style/NewsList'
 const NewsList = ({newsData}) => {
   if (!newsData) {
     return <h3>没有数据</h3>;
@@ -14,9 +15,12 @@ const NewsList = ({newsData}) => {
     </li>
   ));
   return (
-  <ul>
-    {newsList}
-  </ul>);
+    <div className='newsList'>
+      <ul>
+        {newsList}
+      </ul>
+    </div>
+  );
 }
 
 export default NewsList

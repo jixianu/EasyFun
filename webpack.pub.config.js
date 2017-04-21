@@ -3,6 +3,7 @@ var path = require('path');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 var ROOT_PATH = path.resolve(__dirname); // 项目跟路径
 var APP_PATH = path.resolve(ROOT_PATH, 'src'); // 项目开发目录src

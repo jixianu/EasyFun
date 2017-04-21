@@ -2,11 +2,19 @@ import React, {Component} from 'react'
 import {Row, Col, Carousel, Tabs} from 'antd'
 import NewsListBlock from './NewsListBlock'
 import TopListBlock from './TopListBlock'
+import ColumnHeader from '../ColumnHeader'
+
 const {TabPane} = Tabs
 
-const SpotNews = ()=> {
+const SpotColumn = ()=> {
   return (
     <div className='spot_news'>
+      <ColumnHeader
+        title='热点新闻'
+        isMore={true}
+        id='spot'
+        target='/spot'
+      />
       <Row gutter={10}>
         <Col span={8}>
           <Carousel autoplay className='carousel'>
@@ -64,4 +72,4 @@ const SpotNews = ()=> {
   );
 }
 
-export default SpotNews
+export default SpotColumn

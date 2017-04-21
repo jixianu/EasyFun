@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {Form, Input, Button, Radio, InputNumber, message} from 'antd';
 import {fetch_login} from '../../common/fetch'
 const FormItem = Form.Item;

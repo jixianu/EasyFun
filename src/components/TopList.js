@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router'
 
+import '../style/TopList'
 const TopList = ({data, title, link}) => {
   if (!data) {
     return <h3>没有数据</h3>;

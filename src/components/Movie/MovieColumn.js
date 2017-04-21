@@ -17,6 +17,7 @@ export default class MovieColumn extends Component {
     this.setState({
       isLoading: true
     });
+
     fetch_movie({
       start: config.DEFAULT_START,
       count: this.props.count || 4,
@@ -26,11 +27,15 @@ export default class MovieColumn extends Component {
     }).catch(err=> {
       console.log('parsing failed', err);
     })
-    console.log( this.props.count )
+  }
+
+  componentWillUnmount() {
+    // 这里使用组件属性
+    this.unmount = true;
   }
 
   resolve = data => {
-    if (data) {
+    if (data && !this.unmount) {
       this.setState({
         MoviesData: data.subjects,
         isLoading: false
@@ -54,19 +59,17 @@ export default class MovieColumn extends Component {
   }
 
   render() {
-    const {title, id, type, total, noPage, noHead} = this.props;
+    const {type, total, noPage, title} = this.props;
     const {MoviesData, isLoading, current} = this.state;
     return (
       <div>
-        {
-          !noHead &&<ColumnHeader
-            id={id}
-            title={title}
-            isMore={false}
-          />
-        }
-
-        { isLoading ? <Loading />:
+        <ColumnHeader
+          title={title}
+          isMore={true}
+          id='movie'
+          target='/movie'
+        />
+        { isLoading ? <Loading /> :
           <div>
             <MovieList
               type={type}
@@ -74,7 +77,7 @@ export default class MovieColumn extends Component {
               current={current}
             />
             {
-              !noPage&& <Pages
+              !noPage && <Pages
                 total={total}
                 onChange={this.pageChange}
                 current={current}

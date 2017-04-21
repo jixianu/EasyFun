@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Icon, Spin, Row, Col} from 'antd'
+import {Card, Row, Col} from 'antd'
 import {messages, correlations} from '../../common/mock'
 
 const MovieAbout = () => {

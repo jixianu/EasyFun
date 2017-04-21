@@ -1,12 +1,19 @@
 import React, {Component} from 'react'
-import {Row, Col} from 'antd'
 import BookList from './BookList'
+import ColumnHeader from '../ColumnHeader'
 
-import '../../style/Book'
 export default  class MusicColumn extends Component {
   render() {
     return (
-      <BookList />
+      <div>
+        <ColumnHeader
+          title='热门图书'
+          isMore={true}
+          id='book'
+          target='/book'
+        />
+        <BookList />
+      </div>
     )
   }
 }

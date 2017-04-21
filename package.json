@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.dev.config.js --devtool eval --progress --colors --hot --inline --content-base src",
-    "pro": " rimraf dist/*.* && rimraf dist/*/*.* && webpack --config webpack.pro.config.js  -p"
+    "pub": " rimraf dist/*.* && rimraf dist/*/*.* && webpack --config webpack.pub.config.js  -p"
   },
   "author": "xiaomeng",
   "license": "MIT",
@@ -39,9 +39,6 @@
     "antd": "^2.7.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "react-router": "^3.0.2",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.6.0"
+    "react-router": "^3.0.2"
   }
 }

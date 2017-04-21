@@ -33,7 +33,7 @@ export default class NewsListBlock extends Component {
     const {isLoading} = this.state;
 
     return (
-      <div className="newsList">
+      <div>
         {isLoading ? <Loading /> : <NewsList newsData={this.state.newsData}/>}
       </div>
     )

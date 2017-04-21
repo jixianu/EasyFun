@@ -1,8 +1,8 @@
 import React from 'react'
-import {Icon} from 'antd'
 import {Link} from 'react-router'
+import {Icon} from 'antd'
 
-import '../style/Column'
+import '../style/ColumnHeader'
 
 const ColumnHeader = ({title, isMore, id , target})=> {
   return (

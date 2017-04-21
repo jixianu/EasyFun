@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {Modal, Icon, Button, message} from 'antd'
 import LoginForm from './LoginForm'
 import Register from './Register'

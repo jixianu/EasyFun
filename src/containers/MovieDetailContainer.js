@@ -16,13 +16,21 @@ export default class MovieDetailContainer extends Component {
     fetch_movieDetail({
       id: this.props.params.id
     })
-    .then(data=>this.setState({
-      data: data,
-      isLoading: false
-    }))
-    .catch(err=>
-      console.log('parsing failed', err)
-    )
+      .then(data=>{
+        if (data && !this.unmount) {
+          this.setState({
+            data: data,
+            isLoading: false
+          })
+        }
+      })
+      .catch(err=>
+        console.log('parsing failed', err)
+      )
+  }
+
+  componentWillUnmount() {
+    this.unmount = true;
   }
 
   render() {

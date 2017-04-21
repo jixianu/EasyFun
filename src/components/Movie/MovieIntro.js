@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Card, Icon, Spin, Col, Button} from 'antd'
+import {Card, Col} from 'antd'
 import {comments, commentsMore} from '../../common/mock'
 import MovieActor from './MovieActor'
 import ListLoadMore from '../ListLoadMore'
