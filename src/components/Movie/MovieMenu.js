@@ -1,8 +1,6 @@
 import React from 'react'
 import {Anchor} from 'antd'
 
-import '../../style/MovieMenu'
-
 const {Link} = Anchor
 
 const MovieMenu = () => {

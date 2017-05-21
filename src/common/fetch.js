@@ -1,6 +1,6 @@
 import fetchJsonp from 'fetch-jsonp'
 import * as config from '../config'
-
+require('es6-promise').polyfill();
 // 获取电影列表
 export function fetch_movie(opt) {
   if (!opt) {

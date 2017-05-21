@@ -34,24 +34,18 @@
 使用聚合数据API与localStorage做用户登录,接口只能接受username-aaa
 4.21
 完成电影详情页，首页
+5.21
+router的异步加载
 
 ###挖坑埋坑
 
-1. 公共的base，其他css引用是不是每次都要引用
-2. 怎么限制豆瓣的API访问次数，30次/min
-3. 异步读取数据时，返回数据之前切换router会使页面报waring，setState nothing --- 应该使用redux-thunk可以解决
-4. fetch时mock的数据需要放在服务器环境才能拦截http请求,未解决
+1. 公共的base，其他css引用不每次都要引用
+2. 豆瓣的API访问次数，30次/min
+3. 异步读取数据时，返回数据之前切换router会使页面报waring，setState nothing 用给路由一个状态this.mouted
+4. fetch时mock的数据需要放在服务器环境才能拦截http请求,未解决--需要配置node后台环境
 5. 组件样式问题，需要在渲染组件上引入，不应在容器组件上那应用样式，会导致再次使用时还需引样式
-6. fetch错误的catch怎么能统一返回一个数据组合？给一个state做判断，能不能统一返回一个DOM节点
+6. fetch错误的catch怎么能统一返回一个数据组合？给一个state做判断，能不能统一返回一个DOM节点--不能
 7. 组件的大小样式是px像素，而当二次使用时不可适配，应使用百分比
 8. webpack打包无法处理jsx中的img标签引用，使用require()则会被编译
 9. react-router@4.x.x渲染是需要按照react-router-dom，没有hashHistory方法，推荐使用browserHistory,只有react-router@3.x.x才有hashHistory
-10. 鉴于未使用redux中间件处理异步，所以路由切换时组件卸载后的setState会报错
-11. webpack图片怎么压缩
 
-###未来增益
-- router的异步加载
-- 使用redux管理数据流，增加中间件管理异步操作
-- 使用immutable处理数据计算
-- 配置node服务
-- 尝试服务器渲染

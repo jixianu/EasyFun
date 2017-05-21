@@ -1,19 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {Icon} from 'antd'
+import Pages from './Pages'
 
-import '../style/ColumnHeader'
-
-const ColumnHeader = ({title, isMore, id , target})=> {
+const ColumnHeader = ({title, id , target, total, onChange, current, isMore})=> {
   return (
     <div className='column_header'>
       <span className='column_title' id={id}>
-        {title}
+        <Link to={target}> {title} </Link>
       </span>
-      {isMore &&<Link to={target}> <span className='column_more'>
-        更多
-        <Icon type="right"/>
-      </span></Link> }
+      <span className='column_more'>
+        {!isMore && <Pages current= {current} total={total} onChange={onChange}/>}
+      </span>
     </div>
   )
 }

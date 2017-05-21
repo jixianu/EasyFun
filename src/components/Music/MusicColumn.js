@@ -5,8 +5,6 @@ import TopList from '../TopList'
 import {musicTop} from '../../common/mock'
 import ColumnHeader from '../ColumnHeader'
 
-import '../../style/Music'
-
 export default  class MusicColumn extends Component {
   render() {
     return (

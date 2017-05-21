@@ -5,8 +5,6 @@ import SpotColumn from '../components/Spot/SpotColumn'
 import MusicColumn from '../components/Music/MusicColumn'
 import BookColumn from '../components/Book/BookColumn'
 
-import '../style/Home'
-
 export default class HomeContainer extends Component {
   render() {
     return (
@@ -24,7 +22,6 @@ export default class HomeContainer extends Component {
           title='热门电影'
           type='in_theaters'
           total={8}
-          noPage={true}
           noHead={true}
           count={5}
         />

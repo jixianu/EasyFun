@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config webpack.dev.config.js --devtool eval --progress --colors --hot --inline --content-base src",
-    "pub": " rimraf dist/*.* && rimraf dist/*/*.* && webpack --config webpack.pub.config.js  -p"
+    "pub": " rimraf dist/* && webpack --config webpack.pub.config.js  -p"
   },
   "author": "xiaomeng",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.22.0",
     "css-loader": "^0.26.1",
+    "es6-promise": "^4.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "fetch-jsonp": "^1.0.6",
     "file-loader": "^0.9.0",

@@ -3,7 +3,6 @@ import {fetch_spot} from '../../common/fetch'
 import NewsList from './NewsList'
 import Loading from '../Loading'
 
-import '../../style/Spot'
 export default class NewsListBlock extends Component {
   state = {
     newsData: null,

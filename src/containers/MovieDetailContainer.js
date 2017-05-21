@@ -5,7 +5,6 @@ import MovieIntro from '../components/Movie/MovieIntro'
 import MovieAbout from '../components/Movie/MovieAbout'
 import {fetch_movieDetail} from '../common/fetch'
 
-import '../style/MovieDetail'
 export default class MovieDetailContainer extends Component {
   state = {
     data: null,

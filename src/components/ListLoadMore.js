@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import {Button} from 'antd'
-import '../style/ListLoadMore'
 
 const ListLoadMore = ({isLoading, handleClick, count}) => {
   return (
