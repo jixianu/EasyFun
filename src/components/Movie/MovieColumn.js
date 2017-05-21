@@ -59,14 +59,14 @@ export default class MovieColumn extends Component {
   }
 
   render() {
-    const {type, total, noPage, title} = this.props;
+    const {type, total, noPage, title, id} = this.props;
     const {MoviesData, isLoading, current} = this.state;
     return (
       <div>
         <ColumnHeader
           title={title}
           isMore={true}
-          id='movie'
+          id={id}
           target='/movie'
         />
         { isLoading ? <Loading /> :
