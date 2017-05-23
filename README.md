@@ -49,3 +49,7 @@ router的异步加载
 8. webpack打包无法处理jsx中的img标签引用，使用require()则会被编译
 9. react-router@4.x.x渲染是需要按照react-router-dom，没有hashHistory方法，推荐使用browserHistory,只有react-router@3.x.x才有hashHistory
 
+###预览
+![](http://i.imgur.com/6aPjIX4.jpg)
+![](http://i.imgur.com/7FQl7Q4.jpg)
+
