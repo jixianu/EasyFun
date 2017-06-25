@@ -13,7 +13,7 @@
 ###运行
 在目录中，运行指令
 
-    yarn install
+    npm install
 
 开发版
     
